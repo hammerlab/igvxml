@@ -17,7 +17,9 @@ install:
 	    _build/igvxml.cmo\
 	    _build/igvxml.cmx\
 	    _build/igvxml.cmxa\
-            _build/igvxml.cmx
+            _build/igvxml.cmx\
+	    _build/igvxml.cmxs\
+	    _build/igvxml.cmt
 
 uninstall:
 	ocamlfind remove igvxml
@@ -28,3 +30,4 @@ clean:
 
 deps:
 	opam install -y xmlm cmdliner sosa nonstd
+
