@@ -1,0 +1,6 @@
+description="IGV session file generator"
+requires="cmdliner sosa nonstd xmlm"
+version="0.0.0"
+directory="."
+archive(byte)="igvxml.cma"
+archive(native)="igvxml.cmxa"

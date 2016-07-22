@@ -1,0 +1,18 @@
+opam-version: "1.2"
+name: "igvxml"
+version: "0.0.0"
+maintainer: "Isaac Hodes <isaachodes@gmail.com>"
+authors: ["Isaac Hodes <isaachodes@gmail.com>"]
+homepage: "https://github.com/hammerlab/igvxml"
+bug-reports: "https://github.com/hammerlab/igvxml/issues"
+license: "Apache-2.0"
+build: [make]
+install: [make "install"]
+remove: [make "uninstall"]
+depends: [
+  "ocamlfind" {build}
+  "cmdliner"
+  "xmlm"
+  "nonstd"
+  "sosa"
+]

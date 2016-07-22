@@ -4,18 +4,18 @@ module String = Sosa.Native_string
 let write_result_to_file result filename =
   let oc = open_out filename in
   let output = Xmlm.make_output ~indent:(Some 4) (`Channel oc) in
-  let () = List.iter Igv.(Transform.render result)
+  let () = List.iter Igvxml.(Transform.render result)
       ~f:(fun signal -> Xmlm.output output signal) in
   close_out oc
 
 let run run_id genome normal_bam tumor_bam rna_bam vcfs filename
   =
   let result =
-    { Igv.run_id; genome; normal_bam; tumor_bam; rna_bam; vcfs; } in
+    { Igvxml.run_id; genome; normal_bam; tumor_bam; rna_bam; vcfs; } in
   write_result_to_file result filename
 
 
-let keyval : (Igv.desc * Igv.url) Cmdliner.Arg.converter =
+let keyval : (Igvxml.desc * Igvxml.url) Cmdliner.Arg.converter =
   let pars s =
     match String.split ~on:(`Character '=') s with
     | k :: v :: [] -> `Ok (k, v)
@@ -31,7 +31,7 @@ let cmd =
   let doc = "Create an IGV session file." in
   let man = [
     `S "Description";
-    `P "Create an IGV.xml session file from the specified arguments.";
+    `P "Create an igv.xml session file from the specified arguments.";
   ] in
   let run_id =
     let doc = "Patient/Run ID." in

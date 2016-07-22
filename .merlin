@@ -1,0 +1,8 @@
+B _build/**
+S src/
+S test/
+
+PKG cmdliner
+PKG nonstd
+PKG sosa
+PKG xmlm

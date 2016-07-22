@@ -1,17 +1,30 @@
 
-.PHONY: all clean deps
+.PHONY: all clean deps install
 
 
 all:
-	ocamlbuild -use-ocamlfind -tag thread \
+	ocamlbuild -use-ocamlfind -tag thread -build-dir _build \
 		-package nonstd -package sosa -package cmdliner -package xmlm \
-		igv_cli.native
-	mv igv_cli.native igvxml
+		igvxml.cma igvxml.cmxs igvxml.cmxa igvxml_cli.native
+	mv _build/igvxml_cli.native ./igvxml
 
+install:
+	ocamlfind install igvxml META\
+	    _build/igvxml.a\
+	    _build/igvxml.o\
+	    _build/igvxml.cma\
+	    _build/igvxml.cmi\
+	    _build/igvxml.cmo\
+	    _build/igvxml.cmx\
+	    _build/igvxml.cmxa\
+            _build/igvxml.cmx
+
+uninstall:
+	ocamlfind remove igvxml
 
 clean:
-	rm -fr ./_build
-	-rm ./igvxml
+	ocamlbuild -build-dir _build -clean
+	-rm ./igvxml 2> /dev/null
 
 deps:
 	opam install -y xmlm cmdliner sosa nonstd
