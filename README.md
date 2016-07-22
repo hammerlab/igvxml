@@ -1,6 +1,8 @@
 ## Generate IGV Session Files from the Command Line
 
-To build, you will need ocaml and opam.
+Install the library and the binary with `opam install igvxml`.
+
+To build from source:
 
 ```sh
 make deps  # If you don't have them yet
@@ -11,7 +13,7 @@ make       # Results in a ./igvxml binary.
 You can use it like so:
 
 ```shell
-./igvxml --help
+igvxml --help
 
 NAME
        igvxml - Create an IGV session file.
