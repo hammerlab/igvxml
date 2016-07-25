@@ -8,7 +8,10 @@ dev-repo: "git@github.com:hammerlab/igvxml.git"
 bug-reports: "https://github.com/hammerlab/igvxml/issues"
 license: "Apache-2.0"
 build: [make]
-install: [make "install"]
+install: [
+  [make]
+  [make "install"]
+]
 remove: [make "uninstall"]
 depends: [
   "ocamlfind" {build}
