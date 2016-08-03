@@ -6,6 +6,7 @@ dev-repo: "https://github.com/hammerlab/igvxml.git"
 bug-reports: "https://github.com/hammerlab/igvxml/issues"
 license: "Apache-2.0"
 build: [make]
+available: [ ocaml-version >= "4.02.0" ]
 install: [
   [make]
   [make "install"]
