@@ -37,9 +37,8 @@ let cmd =
     let doc = "Patient/Run ID." in
     Arg.(required & opt (some string) None & info ["run-id"] ~doc) in
   let genome =
-    let doc = "Genome used. b37decoy or mm10." in
-    let choices = [("b37decoy", "b37decoy"); ("mm10", "mm10")] in
-    Arg.(required & opt (some (enum choices)) (Some "b37decoy")
+    let doc = "Genome used." in
+    Arg.(required & opt (some string) (Some "b37decoy")
          & info ["genome"; "G"] ~doc) in
   let normal_bam =
     let doc = "Path to Normal BAM." in
